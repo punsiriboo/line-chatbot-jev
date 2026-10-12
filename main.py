@@ -101,7 +101,7 @@ _FLEX_FILES = {
 }
 
 
-def flex_message_for(intent):
+def flex_message_for_intent(intent):
     item = _FLEX_FILES.get(intent)
     if item is None:
         return None
@@ -134,18 +134,9 @@ def callback(request):
     return "OK"
 
 
-def _chat_id(event):
-    source = event.source
-    source_type = getattr(source, "type", "user")
-    if source_type == "group":
-        return getattr(source, "group_id", None)
-    if source_type == "room":
-        return getattr(source, "room_id", None)
-    return getattr(source, "user_id", None)
-
-
 def _show_loading(event):
-    chat_id = _chat_id(event)
+    chat_id = event.source.user_id
+
     if not chat_id:
         return
     try:
@@ -156,60 +147,26 @@ def _show_loading(event):
         print(f"Loading animation failed: {exc}")
 
 
-def _adk_messages(user_text, user_id, event):
-    # Start loading only for this slow call. A fast Jev reply would land
-    # before LINE draws the animation, and then nothing remains to dismiss it.
-    _show_loading(event)
-    return [TextMessage(text=get_agent_response(user_text, user_id))]
-
-
-def _messages_for_intent(user_text, result, user_id, event):
-    flex_messages = None
-    if (
-        result is not None
-        and result.intent != "other"
-        and result.confidence >= CONFIDENCE_THRESHOLD
-    ):
-        try:
-            flex_messages = flex_message_for(result.intent)
-        except Exception as exc:
-            print(f"Flex reply failed, sending to ADK: {exc}")
-    if flex_messages is not None:
-        return flex_messages
-
-    print("Sending unmatched text to ADK")
-    return _adk_messages(user_text, user_id, event)
-
-
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_text_message(event):
     user_text = event.message.text
     user_id = event.source.user_id
+
     try:
-        result = detect_intent(user_text=user_text, user_id=user_id)
-        print(
-            "Jev intent="
-            f"{result.intent} confidence={result.confidence} "
-            f"probabilities={result.probabilities}"
+        result = detect_intent(user_text=user_text)
+        confident = (
+            result.intent != "other"
+            and result.confidence >= CONFIDENCE_THRESHOLD
         )
     except Exception as exc:
         print(f"Jev intent detection failed: {exc}")
-        result = None
+        confident = False
 
-    low_confidence = (
-        result is None
-        or result.intent == "other"
-        or result.confidence < CONFIDENCE_THRESHOLD
-    )
-    if low_confidence:
-        print("Jev low confidence, sending to ADK")
-        messages = _adk_messages(user_text, user_id, event)
+    if confident:
+        messages = flex_message_for_intent(result.intent)
     else:
-        try:
-            messages = _messages_for_intent(user_text, result, user_id, event)
-        except Exception as exc:
-            print(f"Text reply failed, sending to ADK: {exc}")
-            messages = _adk_messages(user_text, user_id, event)
+        _show_loading(event)
+        messages = get_agent_response(user_text, user_id)
 
     line_bot_api.reply_message(
         ReplyMessageRequest(
@@ -217,7 +174,6 @@ def handle_text_message(event):
             messages=messages,
         )
     )
-
 
 @handler.add(MessageEvent, message=ImageMessageContent)
 def handle_image_message(event):
@@ -228,15 +184,14 @@ def handle_image_message(event):
         reply_text = image_description(message_content)
         if not reply_text:
             raise RuntimeError("Gemini returned an empty image description")
+        messages = [TextMessage(text=reply_text)]
     except Exception as exc:
         print(f"Image reply failed, sending to ADK: {exc}")
-        reply_text = get_agent_response("ลูกค้าส่งรูปมา ช่วยตอบสั้นๆ", event.source.user_id)
+        messages = get_agent_response("ลูกค้าส่งรูปมา ช่วยตอบสั้นๆ", event.source.user_id)
 
     line_bot_api.reply_message(
         ReplyMessageRequest(
             reply_token=event.reply_token,
-            messages=[
-                TextMessage(text=reply_text),
-            ],
+            messages=messages,
         )
     )

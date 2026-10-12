@@ -22,24 +22,27 @@ INTENT_CRITERIA = {
     "other": "คำถามอื่นที่ไม่ใช่เมนู เวลาเปิดร้าน โปรโมชั่น การสะสมแต้ม ที่ตั้งร้าน การติดต่อ การชำระเงิน การจัดส่ง การสั่งซื้อ การร้องเรียน หรือข้อเสนอแนะ",
 }
 
-_client = None
+client = TypeSafeClient(
+    api_key=os.environ["JEV_API_KEY"],
+    model=MODEL,
+    timeout=REQUEST_TIMEOUT_SECONDS,
+)
 
 
 @dataclass(frozen=True)
 class IntentResult:
     intent: str
     confidence: float
-    probabilities: dict
 
 
-def detect_intent(user_text, user_id=None):
+def detect_intent(user_text):
     """Classify a LINE text message with Jev and return the chosen intent."""
-    result = _get_client().system_one(
-        {
+    result = client.system_one(
+        state={
             "channel": "line",
             "message": user_text,
         },
-        {
+        questions={
             "intent": Choice(
                 instructions=(
                     "เลือก intent ที่ตรงกับข้อความลูกค้าของร้านกาแฟ BEAT COFFEE มากที่สุด "
@@ -51,26 +54,11 @@ def detect_intent(user_text, user_id=None):
     )
     answer = result.choices.get("intent")
     if answer is None or answer.choice not in INTENT_CRITERIA:
-        return IntentResult(intent="other", confidence=0.0, probabilities={})
+        return IntentResult(intent="other", confidence=0.0)
 
     intent = answer.choice
 
     return IntentResult(
         intent=intent,
         confidence=float(answer.confidence or 0),
-        probabilities=dict(answer.probabilities or {}),
     )
-
-
-def _get_client():
-    global _client
-    if _client is None:
-        api_key = os.environ.get("JEV_API_KEY")
-        if not api_key:
-            raise RuntimeError("JEV_API_KEY is not set")
-        _client = TypeSafeClient(
-            api_key=api_key,
-            model=MODEL,
-            timeout=REQUEST_TIMEOUT_SECONDS,
-        )
-    return _client

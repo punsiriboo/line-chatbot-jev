@@ -6,12 +6,15 @@ BEAT COFFEE answers LINE messages by intent. Jev classifies each text message. A
 
 ## Flow
 
-1. LINE posts the webhook to `callback` in `main.py`.
-2. Text is sent to Jev (`jev-latest`) through the TypeSafe SDK. Jev picks one intent from `INTENT_CRITERIA`.
-3. If the intent is a store topic and confidence is at least `0.55`, the bot sends the intro text and the Flex card in `flex_messages/`. This path does not show a loading animation, because the reply returns too quickly for LINE to clear one.
-4. If Jev returns `other`, confidence is below the threshold, or the call fails, the bot shows a loading animation and sends the same text to the ADK agent. The reply dismisses the animation.
-5. The agent keeps one in-memory session per LINE user id.
-6. Images are described in Thai by Gemini. If that fails, the question goes to the ADK agent.
+![LINE message flow through Jev to Flex replies or ADK](images/diagram.png)
+
+A text message from LINE reaches `callback` in `main.py`. The webhook checks `X-Line-Signature`, then sends the text to Jev (`jev-latest`) through the TypeSafe SDK. Jev picks one intent from `INTENT_CRITERIA` and returns a confidence score. The diagram shows what happens next.
+
+**Confident store intent.** If the intent is a store topic and confidence is at least `0.55`, the bot replies with a short Thai line plus the Flex card in `flex_messages/`. The diagram draws three examples: `view_menu`, `store_hours`, and `promotion`. Every other store intent in the table below uses the same path. This reply returns too quickly for LINE to clear a loading animation, so the bot does not show one.
+
+**Out of scope or low confidence.** If Jev returns `other`, confidence is below `0.55`, or the call fails, the dashed path in the diagram applies. The bot shows a loading animation and sends the same text to the ADK agent. The agent's reply dismisses the animation. The agent keeps one in-memory session per LINE user id, so each customer has a separate conversation until the process restarts.
+
+**Images.** Pictures skip Jev. Gemini describes the image in Thai. If that fails, the question goes to the ADK agent.
 
 ## Intents
 

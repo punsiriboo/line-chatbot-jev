@@ -6,6 +6,7 @@ from google.adk.agents.llm_agent import Agent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai.types import Content, Part
+from linebot.v3.messaging import TextMessage
 
 load_dotenv()
 
@@ -69,4 +70,5 @@ async def _reply(user_message, user_id):
 def get_agent_response(user_message, user_id):
     """Reply with the BEAT COFFEE agent. One in-memory session per LINE user."""
     user_id = user_id or "line-user"
-    return asyncio.run(_reply(user_message, user_id))
+    text = asyncio.run(_reply(user_message, user_id))
+    return [TextMessage(text=text)]
