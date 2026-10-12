@@ -6,6 +6,17 @@ BEAT COFFEE answers LINE messages by intent. Jev classifies each text message. A
 
 ## Flow
 
+```mermaid
+flowchart TD
+    start((Start)) --> line[Receive message from LINE Messaging API]
+    line --> jev[Classify intent with Jev]
+    jev --> choice{Store intent and confidence at least 0.55?}
+    choice -->|Yes| flex[Reply with Flex Message]
+    choice -->|No| adk[Reply with ADK]
+    flex --> stop((End))
+    adk --> stop
+```
+
 ![LINE message flow through Jev to Flex replies or ADK](images/diagram.png)
 
 A text message from LINE reaches `callback` in `main.py`. The webhook checks `X-Line-Signature`, then sends the text to Jev (`jev-latest`) through the TypeSafe SDK. Jev picks one intent from `INTENT_CRITERIA` and returns a confidence score. The diagram shows what happens next.
@@ -25,7 +36,6 @@ A text message from LINE reaches `callback` in `main.py`. The webhook checks `X-
 | `promotion` | มีโปรอะไรบ้าง, สะสมแต้มยังไง | `flex_messages/promotion.json` |
 | `location` | ร้านอยู่ที่ไหน | `flex_messages/location.json` |
 | `contact` | ติดต่อร้านยังไง | `flex_messages/contact.json` |
-| `payment` | จ่ายเงินยังไง | `flex_messages/payment.json` |
 | `other` | Anything else | ADK agent, no Flex card |
 
 `CONFIDENCE_THRESHOLD` lives in `jev_intent.py`.
@@ -43,7 +53,7 @@ Do not commit `.env`.
 | `LINE_CHANNEL_ACCESS_TOKEN` | Reply on LINE |
 | `LINE_CHANNEL_SECRET` | Verify `X-Line-Signature` |
 | `JEV_API_KEY` | TypeSafe key for Jev. It starts with `apikey_` |
-| `GEMINI_API_KEY` | Used by the ADK agent. Copied to `GOOGLE_API_KEY` when that variable is empty |
+| `GEMINI_API_KEY` | Used by the ADK agent and image descriptions |
 
 In the LINE Developers console, set the webhook URL to the Cloud Run service root and enable **Use webhook**.
 

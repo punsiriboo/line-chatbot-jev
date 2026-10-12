@@ -1,5 +1,4 @@
 import asyncio
-import os
 
 from dotenv import load_dotenv
 from google.adk.agents.llm_agent import Agent
@@ -9,9 +8,6 @@ from google.genai.types import Content, Part
 from linebot.v3.messaging import TextMessage
 
 load_dotenv()
-
-if not os.environ.get("GOOGLE_API_KEY") and os.environ.get("GEMINI_API_KEY"):
-    os.environ["GOOGLE_API_KEY"] = os.environ["GEMINI_API_KEY"]
 
 APP_NAME = "beat_coffee"
 session_service = InMemorySessionService()

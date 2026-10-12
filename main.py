@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 import functions_framework
 from dotenv import load_dotenv
-import base64
 
 from linebot.v3.exceptions import InvalidSignatureError
 from linebot.v3 import WebhookHandler
@@ -48,7 +47,6 @@ _FLEX_FILES_MAPPING = {
     "promotion": ("promotion.json", "ซื้อ 2 แก้วลด 10% และสะสมครบ 10 แก้วฟรี 1 แก้ว"),
     "location": ("location.json", "BEAT COFFEE มีสาขากรุงเทพมหานครและสุรินทร์"),
     "contact": ("contact.json", "ติดต่อ BEAT COFFEE ได้ในแชทนี้"),
-    "payment": ("payment.json", "ชำระได้ทั้งเงินสด พร้อมเพย์ และบัตร"),
 }
 
 
