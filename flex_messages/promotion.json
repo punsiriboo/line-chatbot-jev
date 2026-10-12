@@ -1,78 +1,196 @@
 {
   "type": "bubble",
   "size": "mega",
-  "body": {
+  "header": {
     "type": "box",
     "layout": "vertical",
-    "paddingAll": "0px",
+    "backgroundColor": "#1C1410",
+    "paddingAll": "22px",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+    "spacing": "lg",
     "contents": [
       {
-        "type": "image",
-        "url": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "4:5",
-        "gravity": "center",
-        "action": {
-          "type": "message",
-          "label": "ซื้อ 2 แก้ว ลด 10%",
-          "text": "มีโปรอะไรบ้าง"
-        }
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "BEAT COFFEE",
+            "color": "#D4AF37",
+            "size": "xs",
+            "weight": "bold",
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "โปรโมชั่น",
+            "color": "#FFFFFF99",
+            "size": "xs",
+            "align": "end",
+            "flex": 0
+          }
+        ]
       },
       {
         "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
+        "spacing": "md",
         "contents": [
           {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "ซื้อ 2 แก้ว ลด 10%",
-              "text": "มีโปรอะไรบ้าง"
-            },
+            "flex": 5,
+            "spacing": "xs",
             "contents": [
               {
                 "type": "text",
-                "text": "ซื้อ 2 แก้ว ลด 10%",
+                "text": "ลด",
+                "color": "#D4AF37CC",
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "10%",
+                "color": "#FFFFFF",
+                "size": "3xl",
+                "weight": "bold"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "justifyContent": "center",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#D4AF37",
+                "cornerRadius": "100px",
+                "paddingStart": "12px",
+                "paddingEnd": "12px",
+                "paddingTop": "6px",
+                "paddingBottom": "6px",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ทันที",
+                    "size": "xxs",
+                    "color": "#1C1410",
+                    "weight": "bold",
+                    "align": "center"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 5,
+            "spacing": "xs",
+            "contents": [
+              {
+                "type": "text",
+                "text": "เมื่อซื้อ",
+                "color": "#D4AF37CC",
+                "size": "sm",
+                "align": "end"
+              },
+              {
+                "type": "text",
+                "text": "2 แก้ว",
+                "color": "#FFFFFF",
+                "size": "xxl",
                 "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
+                "align": "end"
               }
             ]
           }
-        ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "20px"
+        ]
+      }
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#FFFCF8",
+    "paddingAll": "20px",
+    "spacing": "lg",
+    "contents": [
+      {
+        "type": "text",
+        "text": "สั่งเครื่องดื่มครบ 2 แก้ว รับส่วนลด 10%",
+        "size": "sm",
+        "color": "#1C1410",
+        "weight": "bold",
+        "wrap": true
       },
       {
         "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "lg",
         "contents": [
           {
-            "type": "text",
-            "text": "โปรโมชั่น",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "offsetTop": "3px"
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "justifyContent": "center",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "width": "12px",
+                "height": "12px",
+                "cornerRadius": "30px",
+                "backgroundColor": "#D4AF37",
+                "contents": []
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 1,
+            "spacing": "xs",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ทุกเมนูเครื่องดื่ม",
+                "size": "sm",
+                "weight": "bold",
+                "color": "#1C1410"
+              },
+              {
+                "type": "text",
+                "text": "กรุงเทพฯ และสุรินทร์",
+                "size": "xs",
+                "color": "#8C7B66"
+              }
+            ]
           }
-        ],
-        "position": "absolute",
-        "cornerRadius": "100px",
-        "offsetTop": "16px",
-        "offsetStart": "16px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "6px",
-        "width": "145px"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#F6F0E6",
+    "paddingAll": "14px",
+    "contents": [
+      {
+        "type": "text",
+        "text": "บอกชื่อเครื่องดื่มในแชทนี้ได้เลย",
+        "size": "xs",
+        "color": "#6E5A45",
+        "align": "center",
+        "wrap": true
       }
     ]
   }

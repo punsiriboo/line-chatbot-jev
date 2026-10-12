@@ -1,78 +1,109 @@
 {
   "type": "bubble",
   "size": "mega",
-  "body": {
+  "header": {
     "type": "box",
     "layout": "vertical",
-    "paddingAll": "0px",
+    "backgroundColor": "#1C1410",
+    "paddingAll": "22px",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+    "spacing": "sm",
     "contents": [
       {
-        "type": "image",
-        "url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "4:5",
-        "gravity": "center",
-        "action": {
-          "type": "message",
-          "label": "เล่าในแชทนี้ได้เลย",
-          "text": "วิธีร้องทุกข์"
-        }
-      },
-      {
         "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "เล่าในแชทนี้ได้เลย",
-              "text": "วิธีร้องทุกข์"
-            },
-            "contents": [
-              {
-                "type": "text",
-                "text": "เล่าในแชทนี้ได้เลย",
-                "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
-              }
-            ]
-          }
-        ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "20px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
         "contents": [
           {
             "type": "text",
-            "text": "แจ้งปัญหา",
+            "text": "BEAT COFFEE",
+            "color": "#D4AF37",
             "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "offsetTop": "3px"
+            "weight": "bold",
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "แจ้งปัญหา",
+            "color": "#FFFFFF99",
+            "size": "xs",
+            "align": "end",
+            "flex": 0
           }
-        ],
-        "position": "absolute",
-        "cornerRadius": "100px",
-        "offsetTop": "16px",
-        "offsetStart": "16px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "6px",
-        "width": "145px"
+        ]
+      },
+      {
+        "type": "text",
+        "text": "เล่าให้เราฟังได้เลย",
+        "color": "#FFFFFF",
+        "size": "xl",
+        "weight": "bold",
+        "margin": "md",
+        "wrap": true
+      },
+      {
+        "type": "text",
+        "text": "เราพร้อมรับเรื่องในแชทนี้",
+        "color": "#D4AF37CC",
+        "size": "sm",
+        "margin": "sm",
+        "wrap": true
+      }
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#FFFCF8",
+    "paddingAll": "20px",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "text",
+        "text": "พิมพ์รายละเอียดที่เกิดขึ้น",
+        "size": "sm",
+        "weight": "bold",
+        "color": "#1C1410",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สาขา หรือเครื่องดื่มที่สั่ง",
+            "size": "xs",
+            "color": "#6E5A45",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "สิ่งที่ต้องการให้ช่วยดูต่อ",
+            "size": "xs",
+            "color": "#6E5A45",
+            "wrap": true
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#F6F0E6",
+    "paddingAll": "14px",
+    "contents": [
+      {
+        "type": "text",
+        "text": "พิมพ์ต่อในแชทนี้ได้เลย",
+        "size": "xs",
+        "color": "#6E5A45",
+        "align": "center"
       }
     ]
   }

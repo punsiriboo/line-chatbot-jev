@@ -9,11 +9,7 @@ from linebot.v3 import WebhookHandler
 from linebot.v3.webhooks import (
     MessageEvent,
     TextMessageContent,
-    StickerMessageContent,
     ImageMessageContent,
-    VideoMessageContent,
-    AudioMessageContent,
-    FileMessageContent,
 )
 
 from linebot.v3.messaging import (
@@ -41,6 +37,7 @@ line_bot_api = MessagingApi(api_client)
 line_bot_blob_api = MessagingApiBlob(api_client)
 
 from adk_agent import get_agent_response
+from gemini import image_description
 from jev_intent import CONFIDENCE_THRESHOLD, detect_intent
 
 FLEX_DIR = Path(__file__).resolve().parent / "flex_messages"
@@ -60,6 +57,11 @@ _FLEX_FILES = {
         "promotion.json",
         "โปรโมชั่นประจำร้าน ซื้อ 2 แก้ว ลด 10%",
         "ตอนนี้มีโปรโมชั่นแบบนี้ค่ะ",
+    ),
+    "membership": (
+        "membership.json",
+        "สะสมครบ 10 แก้ว รับเครื่องดื่มฟรี 1 แก้ว",
+        "สะสมครบ 10 แก้ว รับฟรี 1 แก้วค่ะ",
     ),
     "location": (
         "location.json",
@@ -154,11 +156,14 @@ def _show_loading(event):
         print(f"Loading animation failed: {exc}")
 
 
-def _adk_messages(user_text, user_id):
+def _adk_messages(user_text, user_id, event):
+    # Start loading only for this slow call. A fast Jev reply would land
+    # before LINE draws the animation, and then nothing remains to dismiss it.
+    _show_loading(event)
     return [TextMessage(text=get_agent_response(user_text, user_id))]
 
 
-def _messages_for_intent(user_text, result, user_id):
+def _messages_for_intent(user_text, result, user_id, event):
     flex_messages = None
     if (
         result is not None
@@ -173,12 +178,11 @@ def _messages_for_intent(user_text, result, user_id):
         return flex_messages
 
     print("Sending unmatched text to ADK")
-    return _adk_messages(user_text, user_id)
+    return _adk_messages(user_text, user_id, event)
 
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_text_message(event):
-    _show_loading(event)
     user_text = event.message.text
     user_id = event.source.user_id
     try:
@@ -199,13 +203,13 @@ def handle_text_message(event):
     )
     if low_confidence:
         print("Jev low confidence, sending to ADK")
-        messages = _adk_messages(user_text, user_id)
+        messages = _adk_messages(user_text, user_id, event)
     else:
         try:
-            messages = _messages_for_intent(user_text, result, user_id)
+            messages = _messages_for_intent(user_text, result, user_id, event)
         except Exception as exc:
             print(f"Text reply failed, sending to ADK: {exc}")
-            messages = _adk_messages(user_text, user_id)
+            messages = _adk_messages(user_text, user_id, event)
 
     line_bot_api.reply_message(
         ReplyMessageRequest(
@@ -227,29 +231,6 @@ def handle_image_message(event):
     except Exception as exc:
         print(f"Image reply failed, sending to ADK: {exc}")
         reply_text = get_agent_response("ลูกค้าส่งรูปมา ช่วยตอบสั้นๆ", event.source.user_id)
-
-    line_bot_api.reply_message(
-        ReplyMessageRequest(
-            reply_token=event.reply_token,
-            messages=[
-                TextMessage(text=reply_text),
-            ],
-        )
-    )
-
-
-@handler.add(MessageEvent, message=FileMessageContent)
-def handle_file_message(event):
-    _show_loading(event)
-
-    try:
-        doc_content = line_bot_blob_api.get_message_content(message_id=event.message.id)
-        reply_text = document_description(doc_content)
-        if not reply_text:
-            raise RuntimeError("Gemini returned an empty document summary")
-    except Exception as exc:
-        print(f"File reply failed, sending to ADK: {exc}")
-        reply_text = get_agent_response("ลูกค้าส่งไฟล์มา ช่วยตอบสั้นๆ", event.source.user_id)
 
     line_bot_api.reply_message(
         ReplyMessageRequest(

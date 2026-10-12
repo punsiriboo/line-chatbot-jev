@@ -1,101 +1,173 @@
 {
   "type": "bubble",
   "size": "mega",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#1C1410",
+    "paddingAll": "22px",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "BEAT COFFEE",
+            "color": "#D4AF37",
+            "size": "xs",
+            "weight": "bold",
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "เดลิเวอรี",
+            "color": "#FFFFFF99",
+            "size": "xs",
+            "align": "end",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "รับที่ร้านหรือจัดส่ง",
+        "color": "#FFFFFF",
+        "size": "xl",
+        "weight": "bold",
+        "margin": "md",
+        "wrap": true
+      },
+      {
+        "type": "text",
+        "text": "รอบสาขากรุงเทพฯ และสุรินทร์",
+        "color": "#D4AF37CC",
+        "size": "sm",
+        "margin": "sm",
+        "wrap": true
+      }
+    ]
+  },
   "body": {
     "type": "box",
     "layout": "vertical",
-    "paddingAll": "0px",
+    "backgroundColor": "#FFFCF8",
+    "paddingAll": "20px",
+    "spacing": "md",
     "contents": [
       {
-        "type": "image",
-        "url": "https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?auto=format&fit=crop&w=800&q=80",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "4:5",
-        "gravity": "center",
-        "action": {
-          "type": "message",
-          "label": "รับที่ร้าน ฟรี",
-          "text": "วิธีส่งสินค้า"
-        }
-      },
-      {
         "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "md",
         "contents": [
           {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "รับที่ร้าน ฟรี",
-              "text": "วิธีส่งสินค้า"
-            },
+            "flex": 1,
+            "spacing": "xs",
             "contents": [
               {
                 "type": "text",
-                "text": "รับที่ร้าน ฟรี",
+                "text": "รับที่ร้าน",
+                "size": "sm",
                 "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
+                "color": "#1C1410"
+              },
+              {
+                "type": "text",
+                "text": "ไม่มีค่าจัดส่ง",
+                "size": "xs",
+                "color": "#8C7B66"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "ฟรี",
+            "size": "lg",
+            "weight": "bold",
+            "color": "#1C1410",
+            "align": "end",
+            "gravity": "center",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "md",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 1,
+            "spacing": "xs",
+            "contents": [
+              {
+                "type": "text",
+                "text": "จัดส่งรอบสาขา",
+                "size": "sm",
+                "weight": "bold",
+                "color": "#1C1410"
+              },
+              {
+                "type": "text",
+                "text": "ในพื้นที่รอบสาขา",
+                "size": "xs",
+                "color": "#8C7B66"
               }
             ]
           },
           {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "จัดส่ง 40 บาท",
-              "text": "วิธีส่งสินค้า"
-            },
+            "flex": 0,
+            "justifyContent": "center",
             "contents": [
               {
                 "type": "text",
-                "text": "จัดส่ง 40 บาท",
+                "text": "40",
+                "size": "lg",
                 "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
+                "color": "#1C1410",
+                "align": "end"
+              },
+              {
+                "type": "text",
+                "text": "บาท",
+                "size": "xxs",
+                "color": "#8C7B66",
+                "align": "end"
               }
             ]
           }
-        ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "20px",
-        "spacing": "md"
-      },
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#F6F0E6",
+    "paddingAll": "14px",
+    "contents": [
       {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "การจัดส่ง",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "offsetTop": "3px"
-          }
-        ],
-        "position": "absolute",
-        "cornerRadius": "100px",
-        "offsetTop": "16px",
-        "offsetStart": "16px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "6px",
-        "width": "145px"
+        "type": "text",
+        "text": "บอกสาขาและชื่อเครื่องดื่มในแชทนี้",
+        "size": "xs",
+        "color": "#6E5A45",
+        "align": "center",
+        "wrap": true
       }
     ]
   }

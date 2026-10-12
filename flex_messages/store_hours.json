@@ -1,163 +1,408 @@
 {
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "size": "mega",
-      "body": {
+  "type": "bubble",
+  "size": "mega",
+  "action": {
+    "type": "message",
+    "label": "เวลาเปิดร้าน",
+    "text": "ร้านเปิดกี่โมง"
+  },
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#1C1410",
+    "paddingAll": "22px",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+    "spacing": "lg",
+    "contents": [
+      {
         "type": "box",
-        "layout": "vertical",
-        "paddingAll": "0px",
+        "layout": "horizontal",
         "contents": [
           {
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "4:5",
-            "gravity": "center",
-            "action": {
-              "type": "message",
-              "label": "08:00 – 18:00 น.",
-              "text": "ร้านเปิดกี่โมง"
-            }
+            "type": "text",
+            "text": "BEAT COFFEE",
+            "color": "#D4AF37",
+            "size": "xs",
+            "weight": "bold",
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "เปิดทุกวัน",
+            "color": "#FFFFFF99",
+            "size": "xs",
+            "align": "end",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "spacing": "md",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 5,
+            "spacing": "xs",
+            "contents": [
+              {
+                "type": "text",
+                "text": "เปิด",
+                "color": "#D4AF37CC",
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "08:00",
+                "color": "#FFFFFF",
+                "size": "xxl",
+                "weight": "bold"
+              }
+            ]
           },
           {
             "type": "box",
             "layout": "vertical",
+            "flex": 0,
+            "justifyContent": "center",
             "contents": [
               {
                 "type": "box",
                 "layout": "vertical",
-                "backgroundColor": "#FFFFFF",
-                "cornerRadius": "4px",
-                "paddingAll": "13px",
-                "action": {
-                  "type": "message",
-                  "label": "08:00 – 18:00 น.",
-                  "text": "ร้านเปิดกี่โมง"
-                },
+                "backgroundColor": "#D4AF37",
+                "cornerRadius": "100px",
+                "paddingStart": "12px",
+                "paddingEnd": "12px",
+                "paddingTop": "6px",
+                "paddingBottom": "6px",
                 "contents": [
                   {
                     "type": "text",
-                    "text": "08:00 – 18:00 น.",
+                    "text": "10 ชม.",
+                    "size": "xxs",
+                    "color": "#1C1410",
                     "weight": "bold",
-                    "size": "md",
-                    "align": "center",
-                    "color": "#111111"
+                    "align": "center"
                   }
                 ]
               }
-            ],
-            "position": "absolute",
-            "offsetBottom": "0px",
-            "offsetStart": "0px",
-            "offsetEnd": "0px",
-            "backgroundColor": "#D4AF37cc",
-            "paddingAll": "20px"
+            ]
           },
           {
             "type": "box",
             "layout": "vertical",
+            "flex": 5,
+            "spacing": "xs",
             "contents": [
               {
                 "type": "text",
-                "text": "เปิดทุกวัน",
-                "size": "xs",
-                "color": "#ffffff",
-                "align": "center",
-                "offsetTop": "3px"
+                "text": "ปิด",
+                "color": "#D4AF37CC",
+                "size": "sm",
+                "align": "end"
+              },
+              {
+                "type": "text",
+                "text": "18:00",
+                "color": "#FFFFFF",
+                "size": "xxl",
+                "weight": "bold",
+                "align": "end"
               }
-            ],
-            "position": "absolute",
-            "cornerRadius": "100px",
-            "offsetTop": "16px",
-            "offsetStart": "16px",
-            "backgroundColor": "#D4AF37cc",
-            "paddingAll": "6px",
-            "width": "158px"
+            ]
           }
         ]
       }
-    },
-    {
-      "type": "bubble",
-      "size": "mega",
-      "body": {
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#FFFCF8",
+    "paddingAll": "20px",
+    "paddingTop": "18px",
+    "contents": [
+      {
+        "type": "text",
+        "text": "ทั้งสองสาขา · กรุงเทพฯ และสุรินทร์",
+        "color": "#A89880",
+        "size": "xs"
+      },
+      {
         "type": "box",
-        "layout": "vertical",
-        "paddingAll": "0px",
+        "layout": "horizontal",
         "contents": [
           {
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80",
-            "size": "full",
-            "aspectMode": "cover",
-            "aspectRatio": "4:5",
-            "gravity": "center",
-            "action": {
-              "type": "message",
-              "label": "ออเดอร์สุดท้าย 17:30",
-              "text": "ร้านเปิดกี่โมง"
-            }
+            "type": "text",
+            "text": "08:00",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410",
+            "gravity": "center"
           },
           {
             "type": "box",
             "layout": "vertical",
+            "flex": 0,
             "contents": [
+              {
+                "type": "filler"
+              },
               {
                 "type": "box",
                 "layout": "vertical",
-                "backgroundColor": "#FFFFFF",
-                "cornerRadius": "4px",
-                "paddingAll": "13px",
-                "action": {
-                  "type": "message",
-                  "label": "ออเดอร์สุดท้าย 17:30",
-                  "text": "ร้านเปิดกี่โมง"
-                },
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "ออเดอร์สุดท้าย 17:30",
-                    "weight": "bold",
-                    "size": "md",
-                    "align": "center",
-                    "color": "#111111"
-                  }
-                ]
+                "contents": [],
+                "cornerRadius": "30px",
+                "height": "12px",
+                "width": "12px",
+                "backgroundColor": "#D4AF37",
+                "borderColor": "#D4AF37",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
               }
-            ],
-            "position": "absolute",
-            "offsetBottom": "0px",
-            "offsetStart": "0px",
-            "offsetEnd": "0px",
-            "backgroundColor": "#D4AF37cc",
-            "paddingAll": "20px"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "เปิดร้าน",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410"
+          }
+        ],
+        "spacing": "lg",
+        "margin": "xl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "flex": 1,
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ]
           },
           {
             "type": "box",
             "layout": "vertical",
+            "width": "12px",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "flex": 1,
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#D4AF37"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "เสิร์ฟทั้งวัน",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#8C7B66"
+          }
+        ],
+        "spacing": "lg",
+        "height": "52px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "flex": 1,
             "contents": [
               {
                 "type": "text",
-                "text": "ทั้งสองสาขา",
-                "size": "xs",
-                "color": "#ffffff",
-                "align": "center",
-                "offsetTop": "3px"
+                "text": "17:30",
+                "gravity": "center",
+                "size": "sm",
+                "weight": "bold",
+                "color": "#1C1410"
               }
-            ],
-            "position": "absolute",
-            "cornerRadius": "100px",
-            "offsetTop": "16px",
-            "offsetStart": "16px",
-            "backgroundColor": "#D4AF37cc",
-            "paddingAll": "6px",
-            "width": "171px"
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "width": "12px",
+                "height": "12px",
+                "backgroundColor": "#FFFCF8",
+                "borderWidth": "2px",
+                "borderColor": "#D4AF37"
+              },
+              {
+                "type": "filler"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "ออเดอร์สุดท้าย",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm",
+            "color": "#1C1410"
           }
-        ]
+        ],
+        "spacing": "lg"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "flex": 1,
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "width": "12px",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "flex": 1,
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#E4D8C8"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "เตรียมปิดร้าน",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#8C7B66"
+          }
+        ],
+        "spacing": "lg",
+        "height": "52px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "18:00",
+            "gravity": "center",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "width": "12px",
+                "height": "12px",
+                "backgroundColor": "#1C1410",
+                "borderColor": "#1C1410",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "ปิดร้าน",
+            "gravity": "center",
+            "flex": 4,
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410"
+          }
+        ],
+        "spacing": "lg"
       }
-    }
-  ]
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#F6F0E6",
+    "paddingAll": "14px",
+    "contents": [
+      {
+        "type": "text",
+        "text": "เวลาเดียวกันทั้งสองสาขา",
+        "size": "xs",
+        "color": "#6E5A45",
+        "align": "center"
+      }
+    ]
+  }
 }

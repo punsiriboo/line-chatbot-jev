@@ -1,101 +1,157 @@
 {
   "type": "bubble",
   "size": "mega",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#1C1410",
+    "paddingAll": "22px",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "BEAT COFFEE",
+            "color": "#D4AF37",
+            "size": "xs",
+            "weight": "bold",
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "สาขา",
+            "color": "#FFFFFF99",
+            "size": "xs",
+            "align": "end",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "2 สาขา",
+        "color": "#FFFFFF",
+        "size": "xl",
+        "weight": "bold",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "กรุงเทพมหานคร และสุรินทร์",
+        "color": "#D4AF37CC",
+        "size": "sm",
+        "margin": "sm",
+        "wrap": true
+      }
+    ]
+  },
   "body": {
     "type": "box",
     "layout": "vertical",
-    "paddingAll": "0px",
+    "backgroundColor": "#FFFCF8",
+    "paddingAll": "20px",
+    "spacing": "md",
     "contents": [
       {
-        "type": "image",
-        "url": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "4:5",
-        "gravity": "center",
-        "action": {
-          "type": "message",
-          "label": "กรุงเทพมหานคร",
-          "text": "ร้านอยู่ที่ไหน"
-        }
-      },
-      {
         "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "lg",
         "contents": [
           {
-            "type": "box",
-            "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "กรุงเทพมหานคร",
-              "text": "ร้านอยู่ที่ไหน"
-            },
-            "contents": [
-              {
-                "type": "text",
-                "text": "กรุงเทพมหานคร",
-                "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
-              }
-            ]
+            "type": "text",
+            "text": "01",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#D4AF37",
+            "flex": 0,
+            "gravity": "center"
           },
           {
             "type": "box",
             "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "สุรินทร์",
-              "text": "ร้านอยู่ที่ไหน"
-            },
+            "flex": 1,
+            "spacing": "xs",
+            "contents": [
+              {
+                "type": "text",
+                "text": "กรุงเทพมหานคร",
+                "size": "sm",
+                "weight": "bold",
+                "color": "#1C1410",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "เปิดทุกวัน 08:00–18:00",
+                "size": "xs",
+                "color": "#8C7B66"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "lg",
+        "contents": [
+          {
+            "type": "text",
+            "text": "02",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#D4AF37",
+            "flex": 0,
+            "gravity": "center"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 1,
+            "spacing": "xs",
             "contents": [
               {
                 "type": "text",
                 "text": "สุรินทร์",
+                "size": "sm",
                 "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
+                "color": "#1C1410"
+              },
+              {
+                "type": "text",
+                "text": "เปิดทุกวัน 08:00–18:00",
+                "size": "xs",
+                "color": "#8C7B66"
               }
             ]
           }
-        ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "20px",
-        "spacing": "md"
-      },
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#F6F0E6",
+    "paddingAll": "14px",
+    "contents": [
       {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "2 สาขา",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "offsetTop": "3px"
-          }
-        ],
-        "position": "absolute",
-        "cornerRadius": "100px",
-        "offsetTop": "16px",
-        "offsetStart": "16px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "6px",
-        "width": "106px"
+        "type": "text",
+        "text": "เวลาเดียวกันทั้งสองสาขา",
+        "size": "xs",
+        "color": "#6E5A45",
+        "align": "center"
       }
     ]
   }

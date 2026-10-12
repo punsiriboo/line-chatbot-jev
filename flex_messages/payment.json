@@ -1,101 +1,158 @@
 {
   "type": "bubble",
   "size": "mega",
-  "body": {
+  "header": {
     "type": "box",
     "layout": "vertical",
-    "paddingAll": "0px",
+    "backgroundColor": "#1C1410",
+    "paddingAll": "22px",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+    "spacing": "sm",
     "contents": [
       {
-        "type": "image",
-        "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "4:5",
-        "gravity": "center",
-        "action": {
-          "type": "message",
-          "label": "เงินสด / พร้อมเพย์",
-          "text": "วิธีชำระเงิน"
-        }
-      },
-      {
         "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "เงินสด / พร้อมเพย์",
-              "text": "วิธีชำระเงิน"
-            },
-            "contents": [
-              {
-                "type": "text",
-                "text": "เงินสด / พร้อมเพย์",
-                "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "backgroundColor": "#FFFFFF",
-            "cornerRadius": "4px",
-            "paddingAll": "13px",
-            "action": {
-              "type": "message",
-              "label": "บัตรเครดิตและเดบิต",
-              "text": "วิธีชำระเงิน"
-            },
-            "contents": [
-              {
-                "type": "text",
-                "text": "บัตรเครดิตและเดบิต",
-                "weight": "bold",
-                "size": "md",
-                "align": "center",
-                "color": "#111111"
-              }
-            ]
-          }
-        ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "20px",
-        "spacing": "md"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
+        "layout": "horizontal",
         "contents": [
           {
             "type": "text",
-            "text": "ชำระเงิน",
+            "text": "BEAT COFFEE",
+            "color": "#D4AF37",
             "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "offsetTop": "3px"
+            "weight": "bold",
+            "flex": 1
+          },
+          {
+            "type": "text",
+            "text": "ชำระเงิน",
+            "color": "#FFFFFF99",
+            "size": "xs",
+            "align": "end",
+            "flex": 0
           }
-        ],
-        "position": "absolute",
-        "cornerRadius": "100px",
-        "offsetTop": "16px",
-        "offsetStart": "16px",
-        "backgroundColor": "#D4AF37cc",
-        "paddingAll": "6px",
-        "width": "132px"
+        ]
+      },
+      {
+        "type": "text",
+        "text": "3 ช่องทาง",
+        "color": "#FFFFFF",
+        "size": "xl",
+        "weight": "bold",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "เงินสด พร้อมเพย์ และบัตร",
+        "color": "#D4AF37CC",
+        "size": "sm",
+        "margin": "sm",
+        "wrap": true
+      }
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#FFFCF8",
+    "paddingAll": "20px",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "lg",
+        "contents": [
+          {
+            "type": "text",
+            "text": "01",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#D4AF37",
+            "flex": 0,
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "เงินสด",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410",
+            "gravity": "center"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "lg",
+        "contents": [
+          {
+            "type": "text",
+            "text": "02",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#D4AF37",
+            "flex": 0,
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "พร้อมเพย์",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410",
+            "gravity": "center"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "backgroundColor": "#F6F0E6",
+        "cornerRadius": "12px",
+        "paddingAll": "14px",
+        "spacing": "lg",
+        "contents": [
+          {
+            "type": "text",
+            "text": "03",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#D4AF37",
+            "flex": 0,
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "บัตรเครดิตและเดบิต",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#1C1410",
+            "gravity": "center",
+            "wrap": true
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "backgroundColor": "#F6F0E6",
+    "paddingAll": "14px",
+    "contents": [
+      {
+        "type": "text",
+        "text": "ชำระที่สาขาได้ทุกช่องทาง",
+        "size": "xs",
+        "color": "#6E5A45",
+        "align": "center"
       }
     ]
   }
