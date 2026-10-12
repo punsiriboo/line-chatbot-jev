@@ -38,80 +38,31 @@ line_bot_blob_api = MessagingApiBlob(api_client)
 
 from adk_agent import get_agent_response
 from gemini import image_description
-from jev_intent import CONFIDENCE_THRESHOLD, detect_intent
+from jev_intent import CONFIDENCE_THRESHOLD, detect_intent_with_jev
 
 FLEX_DIR = Path(__file__).resolve().parent / "flex_messages"
 
-_FLEX_FILES = {
-    "view_menu": (
-        "view_menu.json",
-        "BEAT COFFEE เมนูเครื่องดื่ม",
-        "นี่คือเมนูเครื่องดื่มของร้านค่ะ",
-    ),
-    "store_hours": (
-        "store_hours.json",
-        "ร้านเปิดทุกวัน 08:00 - 18:00 น.",
-        "ร้านเปิดทุกวันค่ะ",
-    ),
-    "promotion": (
-        "promotion.json",
-        "โปรโมชั่นประจำร้าน ซื้อ 2 แก้ว ลด 10%",
-        "ตอนนี้มีโปรโมชั่นแบบนี้ค่ะ",
-    ),
-    "membership": (
-        "membership.json",
-        "สะสมครบ 10 แก้ว รับเครื่องดื่มฟรี 1 แก้ว",
-        "สะสมครบ 10 แก้ว รับฟรี 1 แก้วค่ะ",
-    ),
-    "location": (
-        "location.json",
-        "BEAT COFFEE มีสาขากรุงเทพมหานครและสุรินทร์",
-        "เรามีสองสาขาค่ะ",
-    ),
-    "contact": (
-        "contact.json",
-        "ติดต่อ BEAT COFFEE ได้ในแชทนี้",
-        "ติดต่อร้านได้ตามนี้เลยค่ะ",
-    ),
-    "payment": (
-        "payment.json",
-        "ชำระได้ทั้งเงินสด พร้อมเพย์ และบัตร",
-        "ชำระเงินได้หลายแบบค่ะ",
-    ),
-    "delivery": (
-        "delivery.json",
-        "รับที่ร้านได้เลย หรือให้จัดส่งรอบสาขา",
-        "รับที่ร้านหรือให้จัดส่งได้ค่ะ",
-    ),
-    "order": (
-        "order.json",
-        "สั่งเครื่องดื่ม BEAT COFFEE ในแชทนี้ได้เลย",
-        "สั่งเครื่องดื่มได้ตามนี้ค่ะ",
-    ),
-    "complaint": (
-        "complaint.json",
-        "แจ้งปัญหาให้ BEAT COFFEE ได้ในแชทนี้",
-        "แจ้งปัญหาได้เลยนะคะ",
-    ),
-    "feedback": (
-        "feedback.json",
-        "ส่งคำชมหรือคำแนะนำให้ BEAT COFFEE ได้ในแชทนี้",
-        "ส่งข้อเสนอแนะได้เลยนะคะ",
-    ),
+_FLEX_FILES_MAPPING = {
+    "view_menu": ("view_menu.json", "BEAT COFFEE มีเมนูเครื่องดื่มดังนี้ค่ะ"),
+    "store_hours": ("store_hours.json", "ร้านเปิดทุกวัน 08:00 - 18:00 น."),
+    "promotion": ("promotion.json", "ซื้อ 2 แก้วลด 10% และสะสมครบ 10 แก้วฟรี 1 แก้ว"),
+    "location": ("location.json", "BEAT COFFEE มีสาขากรุงเทพมหานครและสุรินทร์"),
+    "contact": ("contact.json", "ติดต่อ BEAT COFFEE ได้ในแชทนี้"),
+    "payment": ("payment.json", "ชำระได้ทั้งเงินสด พร้อมเพย์ และบัตร"),
 }
 
 
 def flex_message_for_intent(intent):
-    item = _FLEX_FILES.get(intent)
+    item = _FLEX_FILES_MAPPING.get(intent)
     if item is None:
         return None
-    filename, alt_text, intro = item
+    filename, text = item
     raw = (FLEX_DIR / filename).read_text(encoding="utf-8")
     flex_message = FlexMessage(
-        alt_text=alt_text,
+        alt_text=text,
         contents=FlexContainer.from_json(raw),
     )
-    return [TextMessage(text=intro), flex_message]
+    return [TextMessage(text=text), flex_message]
 
 
 @functions_framework.http
@@ -141,7 +92,7 @@ def _show_loading(event):
         return
     try:
         line_bot_api.show_loading_animation(
-            ShowLoadingAnimationRequest(chat_id=chat_id, loading_seconds=20)
+            ShowLoadingAnimationRequest(chat_id=chat_id)
         )
     except Exception as exc:
         print(f"Loading animation failed: {exc}")
@@ -152,18 +103,12 @@ def handle_text_message(event):
     user_text = event.message.text
     user_id = event.source.user_id
 
-    try:
-        result = detect_intent(user_text=user_text)
-        confident = (
-            result.intent != "other"
-            and result.confidence >= CONFIDENCE_THRESHOLD
-        )
-    except Exception as exc:
-        print(f"Jev intent detection failed: {exc}")
-        confident = False
 
-    if confident:
-        messages = flex_message_for_intent(result.intent)
+    intent, confidence = detect_intent_with_jev(user_text)
+    known_intent = intent != "other"
+    high_confidence = confidence >= CONFIDENCE_THRESHOLD
+    if known_intent and high_confidence:
+        messages = flex_message_for_intent(intent)
     else:
         _show_loading(event)
         messages = get_agent_response(user_text, user_id)

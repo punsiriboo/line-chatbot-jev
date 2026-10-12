@@ -1,6 +1,6 @@
-# Intent-based LINE Chatbot with JEV
+# สร้าง LINE AI Chatbot แบบ Hybrid ด้วย Jev และ Google ADK
 
-![Intent-based LINE Chatbot with JEV](images/title.png)
+![สร้าง LINE AI Chatbot แบบ Hybrid ด้วย Jev และ Google ADK](images/title.png)
 
 BEAT COFFEE answers LINE messages by intent. Jev classifies each text message. A confident store intent gets a short Thai line plus a Flex Message. Anything else goes to the ADK agent.
 
@@ -22,15 +22,10 @@ A text message from LINE reaches `callback` in `main.py`. The webhook checks `X-
 | --- | --- | --- |
 | `view_menu` | ขอดูเมนูหน่อย | `flex_messages/view_menu.json` |
 | `store_hours` | ร้านเปิดกี่โมง | `flex_messages/store_hours.json` |
-| `promotion` | มีโปรอะไรบ้าง | `flex_messages/promotion.json` |
-| `membership` | สะสมแต้มยังไง | `flex_messages/membership.json` |
+| `promotion` | มีโปรอะไรบ้าง, สะสมแต้มยังไง | `flex_messages/promotion.json` |
 | `location` | ร้านอยู่ที่ไหน | `flex_messages/location.json` |
 | `contact` | ติดต่อร้านยังไง | `flex_messages/contact.json` |
 | `payment` | จ่ายเงินยังไง | `flex_messages/payment.json` |
-| `delivery` | ส่งไหม | `flex_messages/delivery.json` |
-| `order` | สั่งยังไง | `flex_messages/order.json` |
-| `complaint` | อยากแจ้งปัญหา | `flex_messages/complaint.json` |
-| `feedback` | อยากให้คำแนะนำ | `flex_messages/feedback.json` |
 | `other` | Anything else | ADK agent, no Flex card |
 
 `CONFIDENCE_THRESHOLD` lives in `jev_intent.py`.

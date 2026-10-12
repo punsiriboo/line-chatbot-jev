@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-SERVICE_NAME="${SERVICE_NAME:-line-chatbot-jev}"
+SERVICE_NAME="${SERVICE_NAME:-line-chatbot-jev-adk}"
 GCP_PROJECT_ID="${GCP_PROJECT_ID:-data-beat-labs}"
 GCP_REGION="${GCP_REGION:-asia-southeast1}"
 GCP_ACCOUNT="${GCP_ACCOUNT:-punsiri.boo@gmail.com}"

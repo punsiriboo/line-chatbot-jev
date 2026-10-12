@@ -129,6 +129,14 @@
         "wrap": true
       },
       {
+        "type": "text",
+        "text": "สะสมครบ 10 แก้ว รับเครื่องดื่มฟรี 1 แก้ว",
+        "size": "sm",
+        "color": "#1C1410",
+        "weight": "bold",
+        "wrap": true
+      },
+      {
         "type": "box",
         "layout": "horizontal",
         "backgroundColor": "#F6F0E6",
