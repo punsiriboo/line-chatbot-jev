@@ -1,0 +1,7 @@
+functions-framework
+python-dotenv
+line-bot-sdk
+google-adk
+google-genai
+pillow
+typesafe-sdk

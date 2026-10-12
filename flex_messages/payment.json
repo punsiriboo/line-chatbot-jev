@@ -1,0 +1,102 @@
+{
+  "type": "bubble",
+  "size": "mega",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "paddingAll": "0px",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "4:5",
+        "gravity": "center",
+        "action": {
+          "type": "message",
+          "label": "เงินสด / พร้อมเพย์",
+          "text": "วิธีชำระเงิน"
+        }
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#FFFFFF",
+            "cornerRadius": "4px",
+            "paddingAll": "13px",
+            "action": {
+              "type": "message",
+              "label": "เงินสด / พร้อมเพย์",
+              "text": "วิธีชำระเงิน"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "เงินสด / พร้อมเพย์",
+                "weight": "bold",
+                "size": "md",
+                "align": "center",
+                "color": "#111111"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#FFFFFF",
+            "cornerRadius": "4px",
+            "paddingAll": "13px",
+            "action": {
+              "type": "message",
+              "label": "บัตรเครดิตและเดบิต",
+              "text": "วิธีชำระเงิน"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "บัตรเครดิตและเดบิต",
+                "weight": "bold",
+                "size": "md",
+                "align": "center",
+                "color": "#111111"
+              }
+            ]
+          }
+        ],
+        "position": "absolute",
+        "offsetBottom": "0px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "backgroundColor": "#D4AF37cc",
+        "paddingAll": "20px",
+        "spacing": "md"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ชำระเงิน",
+            "size": "xs",
+            "color": "#ffffff",
+            "align": "center",
+            "offsetTop": "3px"
+          }
+        ],
+        "position": "absolute",
+        "cornerRadius": "100px",
+        "offsetTop": "16px",
+        "offsetStart": "16px",
+        "backgroundColor": "#D4AF37cc",
+        "paddingAll": "6px",
+        "width": "132px"
+      }
+    ]
+  }
+}

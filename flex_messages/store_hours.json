@@ -1,0 +1,163 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "0px",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "4:5",
+            "gravity": "center",
+            "action": {
+              "type": "message",
+              "label": "08:00 – 18:00 น.",
+              "text": "ร้านเปิดกี่โมง"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#FFFFFF",
+                "cornerRadius": "4px",
+                "paddingAll": "13px",
+                "action": {
+                  "type": "message",
+                  "label": "08:00 – 18:00 น.",
+                  "text": "ร้านเปิดกี่โมง"
+                },
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "08:00 – 18:00 น.",
+                    "weight": "bold",
+                    "size": "md",
+                    "align": "center",
+                    "color": "#111111"
+                  }
+                ]
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "backgroundColor": "#D4AF37cc",
+            "paddingAll": "20px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "เปิดทุกวัน",
+                "size": "xs",
+                "color": "#ffffff",
+                "align": "center",
+                "offsetTop": "3px"
+              }
+            ],
+            "position": "absolute",
+            "cornerRadius": "100px",
+            "offsetTop": "16px",
+            "offsetStart": "16px",
+            "backgroundColor": "#D4AF37cc",
+            "paddingAll": "6px",
+            "width": "158px"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "0px",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "4:5",
+            "gravity": "center",
+            "action": {
+              "type": "message",
+              "label": "ออเดอร์สุดท้าย 17:30",
+              "text": "ร้านเปิดกี่โมง"
+            }
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#FFFFFF",
+                "cornerRadius": "4px",
+                "paddingAll": "13px",
+                "action": {
+                  "type": "message",
+                  "label": "ออเดอร์สุดท้าย 17:30",
+                  "text": "ร้านเปิดกี่โมง"
+                },
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ออเดอร์สุดท้าย 17:30",
+                    "weight": "bold",
+                    "size": "md",
+                    "align": "center",
+                    "color": "#111111"
+                  }
+                ]
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "backgroundColor": "#D4AF37cc",
+            "paddingAll": "20px"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ทั้งสองสาขา",
+                "size": "xs",
+                "color": "#ffffff",
+                "align": "center",
+                "offsetTop": "3px"
+              }
+            ],
+            "position": "absolute",
+            "cornerRadius": "100px",
+            "offsetTop": "16px",
+            "offsetStart": "16px",
+            "backgroundColor": "#D4AF37cc",
+            "paddingAll": "6px",
+            "width": "171px"
+          }
+        ]
+      }
+    }
+  ]
+}

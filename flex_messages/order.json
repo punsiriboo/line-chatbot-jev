@@ -1,0 +1,102 @@
+{
+  "type": "bubble",
+  "size": "mega",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "paddingAll": "0px",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "4:5",
+        "gravity": "center",
+        "action": {
+          "type": "message",
+          "label": "พิมพ์ชื่อเครื่องดื่ม",
+          "text": "วิธีสั่งสินค้า"
+        }
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#FFFFFF",
+            "cornerRadius": "4px",
+            "paddingAll": "13px",
+            "action": {
+              "type": "message",
+              "label": "พิมพ์ชื่อเครื่องดื่ม",
+              "text": "วิธีสั่งสินค้า"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "พิมพ์ชื่อเครื่องดื่ม",
+                "weight": "bold",
+                "size": "md",
+                "align": "center",
+                "color": "#111111"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#FFFFFF",
+            "cornerRadius": "4px",
+            "paddingAll": "13px",
+            "action": {
+              "type": "message",
+              "label": "ดูเมนู",
+              "text": "ขอดูเมนูหน่อย"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "ดูเมนู",
+                "weight": "bold",
+                "size": "md",
+                "align": "center",
+                "color": "#111111"
+              }
+            ]
+          }
+        ],
+        "position": "absolute",
+        "offsetBottom": "0px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "backgroundColor": "#D4AF37cc",
+        "paddingAll": "20px",
+        "spacing": "md"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "วิธีสั่ง",
+            "size": "xs",
+            "color": "#ffffff",
+            "align": "center",
+            "offsetTop": "3px"
+          }
+        ],
+        "position": "absolute",
+        "cornerRadius": "100px",
+        "offsetTop": "16px",
+        "offsetStart": "16px",
+        "backgroundColor": "#D4AF37cc",
+        "paddingAll": "6px",
+        "width": "132px"
+      }
+    ]
+  }
+}

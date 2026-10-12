@@ -1,0 +1,79 @@
+{
+  "type": "bubble",
+  "size": "mega",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "paddingAll": "0px",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "4:5",
+        "gravity": "center",
+        "action": {
+          "type": "message",
+          "label": "เล่าในแชทนี้ได้เลย",
+          "text": "วิธีร้องทุกข์"
+        }
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#FFFFFF",
+            "cornerRadius": "4px",
+            "paddingAll": "13px",
+            "action": {
+              "type": "message",
+              "label": "เล่าในแชทนี้ได้เลย",
+              "text": "วิธีร้องทุกข์"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "เล่าในแชทนี้ได้เลย",
+                "weight": "bold",
+                "size": "md",
+                "align": "center",
+                "color": "#111111"
+              }
+            ]
+          }
+        ],
+        "position": "absolute",
+        "offsetBottom": "0px",
+        "offsetStart": "0px",
+        "offsetEnd": "0px",
+        "backgroundColor": "#D4AF37cc",
+        "paddingAll": "20px"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "แจ้งปัญหา",
+            "size": "xs",
+            "color": "#ffffff",
+            "align": "center",
+            "offsetTop": "3px"
+          }
+        ],
+        "position": "absolute",
+        "cornerRadius": "100px",
+        "offsetTop": "16px",
+        "offsetStart": "16px",
+        "backgroundColor": "#D4AF37cc",
+        "paddingAll": "6px",
+        "width": "145px"
+      }
+    ]
+  }
+}
