@@ -28,7 +28,7 @@ A text message from LINE reaches `callback` in `main.py`. The webhook checks `X-
 
 **Out of scope or low confidence.** If Jev returns `other`, confidence is below `0.55`, or the call fails, the dashed path in the diagram applies. The bot shows a loading animation and sends the same text to the ADK agent. The agent's reply dismisses the animation. The agent keeps one in-memory session per LINE user id, so each customer has a separate conversation until the process restarts.
 
-**Images.** Pictures skip Jev. Gemini describes the image in Thai. If that fails, the question goes to the ADK agent.
+**Images.** Pictures skip Jev. Gemini first says what the picture is, then that description is sent to the ADK agent. If the description fails, ADK still answers.
 
 ## Intents
 

@@ -124,13 +124,14 @@ def handle_image_message(event):
 
     try:
         message_content = line_bot_blob_api.get_message_content(message_id=event.message.id)
-        reply_text = image_description(message_content)
-        if not reply_text:
+        description = image_description(message_content)
+        if not description:
             raise RuntimeError("Gemini returned an empty image description")
-        messages = [TextMessage(text=reply_text)]
+        user_text = f"ลูกค้าส่งรูปมา รูปคือ: {description}"
     except Exception as exc:
-        print(f"Image reply failed, sending to ADK: {exc}")
-        messages = get_agent_response("ลูกค้าส่งรูปมา ช่วยตอบสั้นๆ", event.source.user_id)
+        print(f"Image description failed, sending to ADK: {exc}")
+        user_text = "ลูกค้าส่งรูปมา ช่วยตอบสั้นๆ"
+    messages = get_agent_response(user_text, event.source.user_id)
 
     line_bot_api.reply_message(
         ReplyMessageRequest(

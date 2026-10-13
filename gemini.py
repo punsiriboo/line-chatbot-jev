@@ -10,16 +10,15 @@ _client = None
 
 
 def image_description(message_content):
-    """Describe a LINE image in Thai. ADK is only used if this fails."""
+    """Describe what is in a LINE image. The description is sent to ADK."""
     image_bytes = _as_bytes(message_content)
     response = _get_client().models.generate_content(
         model=MODEL,
         contents=[
             types.Part.from_bytes(data=image_bytes, mime_type=_mime_type(image_bytes)),
             (
-                "ลูกค้าส่งรูปนี้มาในแชทของร้านกาแฟ BEAT COFFEE "
-                "ดูรูปแล้วตอบเป็นภาษาไทย สั้น เป็นกันเอง "
-                "บอกสิ่งที่เห็นในรูป และตอบให้เกี่ยวกับร้านถ้าเกี่ยวข้อง"
+                "ดูรูปนี้แล้วบอกเป็นภาษาไทยสั้น ๆ ว่ารูปคืออะไร "
+                "บอกเฉพาะสิ่งที่เห็นในรูป ยังไม่ต้องตอบลูกค้า"
             ),
         ],
     )
