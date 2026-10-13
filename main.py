@@ -52,13 +52,13 @@ _FLEX_FILES_MAPPING = {
 
 def flex_message_for_intent(intent):
     item = _FLEX_FILES_MAPPING.get(intent)
-    if item is None:
+    if item is None: 
         return None
     filename, text = item
-    raw = (FLEX_DIR / filename).read_text(encoding="utf-8")
+    flex_json = (FLEX_DIR / filename).read_text(encoding="utf-8")
     flex_message = FlexMessage(
         alt_text=text,
-        contents=FlexContainer.from_json(raw),
+        contents=FlexContainer.from_json(flex_json),
     )
     return [TextMessage(text=text), flex_message]
 
@@ -100,7 +100,8 @@ def _show_loading(event):
 def handle_text_message(event):
     user_text = event.message.text
     user_id = event.source.user_id
-
+    
+    _show_loading(event)
 
     intent, confidence = detect_intent_with_jev(user_text)
     known_intent = intent != "other"
@@ -108,7 +109,6 @@ def handle_text_message(event):
     if known_intent and high_confidence:
         messages = flex_message_for_intent(intent)
     else:
-        _show_loading(event)
         messages = get_agent_response(user_text, user_id)
 
     line_bot_api.reply_message(
