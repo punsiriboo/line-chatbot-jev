@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from google.adk.agents.llm_agent import Agent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
+from google.adk.tools import google_search
 from google.genai.types import Content, Part
 from linebot.v3.messaging import TextMessage
 
@@ -15,7 +16,7 @@ runner = Runner(
     app_name=APP_NAME,
     session_service=session_service,
     agent=Agent(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         name="beat_coffee_agent",
         description="พนักงานร้านกาแฟ BEAT COFFEE",
         instruction=(
@@ -24,8 +25,10 @@ runner = Runner(
             "โปรโมชั่นคือซื้อ 2 แก้วลด 10% "
             "สะสมครบ 10 แก้วรับเครื่องดื่มฟรี 1 แก้ว "
             "ชำระเงินสด พร้อมเพย์ หรือบัตร สั่งในแชทนี้แล้วรับที่ร้านหรือจัดส่งได้ "
-            "เมนูมีเอสเพรสโซ อเมริกาโน่ ลาเต้ คาปูชิโน่ และมอคค่า"
+            "เมนูมีเอสเพรสโซ อเมริกาโน่ ลาเต้ คาปูชิโน่ และมอคค่า\n"
+            "ถ้าคำถามอยู่นอกข้อเท็จจริงของร้าน ให้ใช้ Google Search แล้วตอบสั้นจากผลค้นหา"
         ),
+        tools=[google_search],
     ),
 )
 
