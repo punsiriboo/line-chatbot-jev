@@ -7,14 +7,17 @@ BEAT COFFEE answers LINE messages by intent. Jev classifies each text message. A
 ## Flow
 
 ```mermaid
-flowchart TD
-    start((Start)) --> line[Receive message from LINE Messaging API]
-    line --> jev[Classify intent with Jev]
-    jev --> choice{Store intent and confidence at least 0.55?}
-    choice -->|Yes| flex[Reply with Flex Message]
-    choice -->|No| adk[Reply with ADK]
-    flex --> stop((End))
-    adk --> stop
+sequenceDiagram
+    participant Line as LINE Messaging API
+    participant Jev
+    participant ADK
+    Line->>Jev: Classify intent
+    alt Store intent and confidence at least 0.55
+        Jev-->>Line: Flex Message
+    else Other or low confidence
+        Jev-)ADK: Forward the message
+        ADK-->>Line: Reply
+    end
 ```
 
 ![LINE message flow through Jev to Flex replies or ADK](images/diagram.png)
